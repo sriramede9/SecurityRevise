@@ -51,6 +51,8 @@ public class SecurityConfig {
                 .hasAnyRole("USER", "ADMIN")
                 .antMatchers("/login/**")
                 .anonymous()
+                .antMatchers(("/actuator/**"))
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
